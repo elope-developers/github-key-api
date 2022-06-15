@@ -1,0 +1,126 @@
+-- create key table
+CREATE TABLE `keys` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT 'Key',
+  `descr` varchar(225) NOT NULL DEFAULT 'Item Description',
+  `price` double NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+
+-- populate key table
+INSERT INTO `keys` (`id`, `name`, `descr`, `price`)
+VALUES
+	(1, 'K-Ford', 'Key for Ford Vehicles', 4.3),
+	(2, 'K-Honda ', 'Key for Honda Vehicles', 5.01),
+	(4, 'K-Kia', 'Key for Kia Vehicles', 1.33),
+	(14, 'K-BMW', 'Key for BMW Vehicles', 10.45),
+	(24, 'K-GMC', 'Key for GMC Vehicles', 45.23);
+
+
+
+-- create technicians table
+CREATE TABLE `technicians` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL DEFAULT 'Jane',
+  `lastname` varchar(255) NOT NULL DEFAULT 'Doe',
+  `truckID` int(11) NOT NULL DEFAULT '-1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8;
+
+-- populate technicians table
+INSERT INTO `technicians` (`id`, `firstname`, `lastname`, `truckID`)
+VALUES
+	(4, 'Jane', 'Doe', 1),
+	(14, 'Mike', 'Johnson', 2),
+	(24, 'Tim', 'Parker', 3),
+	(34, 'Susan', 'Kellar', 4),
+	(44, 'Alex', 'Smith', 5),
+	(54, 'Dante', 'Cordova', 501),
+	(64, 'Brooks', 'Homes', 502),
+	(74, 'Jimmy', 'Butler', 503),
+	(84, 'Terry', 'Bradshaw', 504),
+	(94, 'The', 'Pope', 505),
+	(104, 'Jimmy', 'Johns', 506),
+	(114, 'Michael', 'Jordan', 507),
+	(124, 'Jenn', 'Zynga', 508),
+	(134, 'JR', 'Marshall', 509),
+	(144, 'Kelsey', 'May', 510);
+
+
+-- create vehicles table
+CREATE TABLE `vehicles` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `year` int(11) NOT NULL DEFAULT '1970',
+  `make` varchar(225) NOT NULL DEFAULT 'carmaker',
+  `model` varchar(225) NOT NULL DEFAULT 'carmodel',
+  `vin` varchar(50) NOT NULL DEFAULT 'vinnumber',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8;
+
+-- populate vehicles table
+INSERT INTO `vehicles` (`id`, `year`, `make`, `model`, `vin`)
+VALUES
+	(34, 1999, 'BMW', 'm5', '9F7'),
+	(64, 2005, 'BMW', 'i8', 'C29'),
+	(124, 2011, 'BMW', 'i3', 'BH3'),
+	(4, 1969, 'Ford', 'Mustang', '111'),
+	(74, 2006, 'Ford', 'Focus', 'C12'),
+	(114, 2010, 'Ford', 'Bronco', 'C9F'),
+	(144, 2013, 'Ford', 'Focus', 'BI5'),
+	(44, 2003, 'GMC', 'Yukon', 'C44'),
+	(54, 2004, 'GMC', 'Denali', 'J90'),
+	(154, 2014, 'GMC', 'Sierra', '71T'),
+	(14, 2019, 'Honda', 'Civic', '5F4'),
+	(84, 2007, 'Honda', 'Pilot', 'PLQ'),
+	(94, 2008, 'Honda', 'Accord', 'VBA'),
+	(24, 2016, 'Kia', 'Soul', 'P0P'),
+	(104, 2009, 'Kia', 'Sorento', 'CM3'),
+	(134, 2012, 'Kia', 'Forte', 'XP1');
+
+
+
+-- create key_vehicles table
+CREATE TABLE `key_vehicles` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `key_id` int(11) NOT NULL DEFAULT '1',
+  `vehicle_id` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=274 DEFAULT CHARSET=utf8;
+
+-- populate key_vehicles table
+INSERT INTO `key_vehicles` (`id`, `key_id`, `vehicle_id`)
+VALUES
+	(54, 1, 4),
+	(64, 1, 74),
+	(74, 1, 114),
+	(84, 1, 144),
+	(124, 2, 14),
+	(134, 2, 84),
+	(144, 2, 94),
+	(154, 4, 24),
+	(164, 4, 104),
+	(174, 4, 134),
+	(214, 14, 34),
+	(224, 14, 64),
+	(234, 14, 124),
+	(244, 24, 44),
+	(254, 24, 54),
+	(264, 24, 154);
+
+-- create orders table
+CREATE TABLE `orders` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `technician_id` int(11) DEFAULT NULL,
+  `vin` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=224 DEFAULT CHARSET=utf8;
+
+-- populate orders table
+INSERT INTO `orders` (`id`, `technician_id`, `vin`)
+VALUES
+	(104, 4, '111'),
+	(114, 14, '5F4'),
+	(194, 34, '111'),
+	(204, 4, '9F7'),
+	(214, 64, 'C44');
+
