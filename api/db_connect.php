@@ -60,7 +60,6 @@ class db_connect
 function connection()
 {
 
-    mysql://b45f1c424b9a12:21dd302d@us-cdbr-east-05.cleardb.net/heroku_963fa8fc8963da7?reconnect=true
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $server = "us-cdbr-east-05.cleardb.net"; //$url["host"];
     $username = "b45f1c424b9a12"; //$url["user"];
