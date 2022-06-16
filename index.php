@@ -19,7 +19,7 @@
     </div>
 
     <hr>
-    <h1>Documention</h1>
+    <h1>Documentation</h1>
     <p>The purpose of this web app is to allow an HTL Admin to create/read/update/delete orders over the Cars Restful PHP API</p>
     <p><b>This project builds using compser for heroku. Run composer install.</b><p>
 
