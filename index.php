@@ -21,6 +21,8 @@
     <hr>
     <h1>Documention</h1>
     <p>The purpose of this web app is to allow an HTL Admin to create/read/update/delete orders over the Cars Restful PHP API</p>
+    <p><b>This project builds using compser for heroku. Run composer install.</b><p>
+
     <h2>Cars Restful PHP API</h2>
     <p>Calls to the cars api are routed to
     <pre>https://kg-key-api.herokuapp.com/api/cars.php</pre>
